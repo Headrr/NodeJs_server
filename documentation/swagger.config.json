@@ -1,0 +1,37 @@
+{
+    "definition": {
+      "openapi": "3.0.0",
+      "info": {
+        "title": "Recipes API",
+        "version": "1.0.0",
+        "description": "Node with Express recipes API",
+        "termsOfService": "http://example.com/terms/",
+        "contact": {
+          "name": "API Support",
+          "url": "https://escalab.academy/",
+          "email": "mchamorro@escalab.academy"
+        }
+      },
+      "servers": [
+        {
+          "url": "http://localhost:8002/api",
+          "description": "My Api Documentation"
+        },
+        {
+          "url": "http://2545454545.aws.amazon.com",
+          "description": "My Api Documentation in Production"
+        }
+      ],
+      "security": [{ "ApiKey": [] }],
+      "components": {
+        "securitySchemes": {
+          "ApiKey": {
+            "type": "apiKey",
+            "in": "header",
+            "name": "authtoken"
+          }
+        }
+      }
+    },
+    "apis": ["./routes/*.js"]
+  }
