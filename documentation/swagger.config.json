@@ -12,7 +12,7 @@
           "description": "My Api Documentation"
         },
         {
-          "url": "https://recipes-nodejs.herokuapp.com/api/docs/",
+          "url": "https://recipes-nodejs.herokuapp.com/api",
           "description": "My Api Documentation in Production"
         }
       ],
