@@ -4,13 +4,7 @@
       "info": {
         "title": "Recipes API",
         "version": "1.0.0",
-        "description": "Node with Express recipes API",
-        "termsOfService": "http://example.com/terms/",
-        "contact": {
-          "name": "API Support",
-          "url": "https://escalab.academy/",
-          "email": "mchamorro@escalab.academy"
-        }
+        "description": "Node with Express recipes API"
       },
       "servers": [
         {
@@ -18,7 +12,7 @@
           "description": "My Api Documentation"
         },
         {
-          "url": "http://2545454545.aws.amazon.com",
+          "url": "https://recipes-nodejs.herokuapp.com/api/docs/",
           "description": "My Api Documentation in Production"
         }
       ],

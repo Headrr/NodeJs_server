@@ -1,5 +1,6 @@
 const admin = require("../firebase");
 const User = require("../models/user");
+const Chef = require("../models/chef");
 
 exports.authCheck = async (req, res, next) => {
     //console.log(req.headers.authtoken); // token
@@ -26,6 +27,20 @@ exports.adminCheck = async (req, res, next) => {
     if (adminUser.role !== "admin") {
         res.status(403).json({
             err: "Admin resource. Access denied.",
+        });
+    } else {
+        next();
+    }
+};
+
+exports.chefCheck = async (req, res, next) => {
+    const { email } = req.user;
+
+    const chefUser = await Chef.findOne({ email }).exec();
+
+    if (chefUser.role !== "chef") {
+        res.status(403).json({
+            err: "Chef resource. Access denied.",
         });
     } else {
         next();

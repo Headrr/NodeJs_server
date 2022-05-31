@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { ObjectId } = require("mongoose");
 
-const productSchema = new mongoose.Schema(
+const recipeSchema = new mongoose.Schema(
   {
     title: {
       type: String,
@@ -22,48 +22,40 @@ const productSchema = new mongoose.Schema(
       maxlength: 2000,
       text: true,
     },
-    price: {
+    servings: {
       type: Number,
       required: true,
       trim: true,
       maxlength: 32,
     },
-    category: {
-      type: ObjectId,
-      ref: "Category",
-    },
-    subs: [
-      {
-        type: ObjectId,
-        ref: "Sub",
-      },
-    ],
-    quantity: Number,
-    sold: {
+    time: {
       type: Number,
-      default: 0,
+      required: true,
+      trim: true,
+      maxlength: 32,
+    },
+    type: {
+      type: ObjectId,
+      ref: "RecipeType",
     },
     images: {
       type: Array,
     },
-    shipping: {
+    label: {
       type: String,
-      enum: ["Yes", "No"],
+      enum: ["Desayuno", "Almuerzo", "Cena", "Merienda", "Cóctel", "Comida rápida", "Ensalada"],
     },
-    color: {
+    origin: {
+      type: ObjectId,
+      ref: "RecipeOrigin",
+      // enum: ["Chile", "Perú", "Francia", "España", "Italia", "China", "Egipto"],
+    },
+    preparation: {
       type: String,
-      enum: ["Black", "Brown", "Silver", "White", "Blue"],
+      required: true,
+      maxlength: 4000,
+      text: true,
     },
-    brand: {
-      type: String,
-      enum: ["Apple", "Samsung", "Microsoft", "Lenovo", "ASUS"],
-    },
-    ratings: [
-      {
-        star: Number,
-        postedBy: { type: ObjectId, red: "User" },
-      },
-    ],
     status: {
       type: String,
       default: "Active",
@@ -73,4 +65,4 @@ const productSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Product", productSchema);
+module.exports = mongoose.model("Recipe", recipeSchema);

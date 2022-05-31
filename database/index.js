@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const connectDB = async () => {
   try {
     await mongoose.connect(process.env.DATABASE_CLOUD, {
+    // await mongoose.connect(process.env.DATABASE, {
       useNewUrlParser: true,
       useUnifiedTopology: true, //models, querys, definition fields, etc...
       useFindAndModify: false,
