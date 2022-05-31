@@ -24,6 +24,9 @@ app.use(express.json({ limit: "2mb" })); // definición estándar y moderna
 const swaggerDocs = swaggerJsdoc(swaggerConfig);
 app.use("/api/docs", swaggerUI.serve, swaggerUI.setup(swaggerDocs, { explorer: true }))
 app.use(cors());
+app.get("/", (req, res) => {
+  res.send("Bienvenido a la API de Recetas para el curso de Node JS");
+});
 // app.use("/api", userRoutes); // pasando un middleware de ruta
 // app.use(userRoutes);
 
